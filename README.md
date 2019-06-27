@@ -6,6 +6,6 @@ This repo reviews and implements several basic concepts in Machine Learning area
 
 This repository collects:
 
-* Books & Academic Papers 
-* Online Courses and Videos
-* Basic Concepts
+1. Books & Academic Papers 
+2. Online Courses and Videos
+3. Basic Concepts
