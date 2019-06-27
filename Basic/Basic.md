@@ -7,7 +7,7 @@ Below is the structure of this section.
 
 Table of Contents
 
-#### - [Hypothesis](Hypothesis.md)
-#### - [Cost Function](Cost.md)
-#### - [Normalization](Normal.md)
-#### - [Regularization](Regular.md)
+## - [Hypothesis]
+## - [Cost Function]
+## - [Normalization]
+## - [Regularization]
