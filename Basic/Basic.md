@@ -7,7 +7,16 @@ Below is the structure of this section.
 
 Table of Contents
 
-## - [Hypothesis]
-## - [Cost Function]
-## - [Normalization]
-## - [Regularization]
+#### - [Hypothesis](#Hypothesis)
+#### - [Cost Function](#Cost-Function)
+#### - [Normalization](#Normalization)
+#### - [Regularization](#Regularization)
+
+----
+## Hypothesis
+
+## Cost Function
+
+## Normalization
+
+## Regularization
