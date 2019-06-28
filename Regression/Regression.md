@@ -1,3 +1,5 @@
 # Regression Analysis
 
-Regression analysis is a statistical process for estimating/predicting the relationship among variables. t includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable ('target' or 'label') and more or more indenpendent variables ('predictors').
+Regression analysis is a predictive modeling technique which investigates the relationship among variables. It aims to find the _causal effect relationship_** between a dependent variable ('target' or 'label') and one or more indenpendent variables ('predictors').
+
+![Linear Regression for Stock](https://www.analyticsvidhya.com/wp-content/uploads/2015/08/Regression_Line.png)
