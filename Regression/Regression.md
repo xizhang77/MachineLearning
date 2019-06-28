@@ -17,7 +17,8 @@ Below is an example of how regression used among stock analysis.
 * [Ridge Regression](#Ridge-Regression)
 * [LASSO Regression](#LASSO-Regression)
 
-----
+------
+
 ### Linear Regression
 
 ### Logistic Regression
@@ -25,3 +26,5 @@ Below is an example of how regression used among stock analysis.
 ### Ridge Regression
 
 ### LASSO Regression
+
+## Summary
