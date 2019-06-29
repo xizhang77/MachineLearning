@@ -30,7 +30,7 @@ Below is a brief summary of Linear Regression. For more details, please check:
 
 Linear Regression might be the most popular statistical models in regression analysis. It allows us to learn a function which can represent the relationship between some data points _x_ and corresponding _y_. Such function/relationship is also called hypothesis.
 
-![Hypothesis](http://www.sciweavers.org/tex2img.php?eq=h%28x%29%20%3D%20W%2Ax%20%2B%20b&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
+_h(x) = W*x + b_
 
 where _W_ is the parameter of weights (vector) and _b_ is the parameter of bias (scalar). All we need to do next is to estimate the value of _W_ and _b_ from the give data such that the hypothesis _h(x)_ is as close as possible to the original data point _y_. Therefore, the loss/cost function is introduced.
 
