@@ -34,7 +34,7 @@ _h(x) = W*x + b_
 
 where _W_ is the parameter of weights (vector) and _b_ is the parameter of bias (scalar). All we need to do next is to estimate the value of _W_ and _b_ from the give data such that the hypothesis _h(x)_ is as close as possible to the original data point _y_. Therefore, the loss/cost function is introduced.
 
-![Loss Function](http://www.sciweavers.org/tex2img.php?eq=%20J%28W%2C%20b%29%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%20%28y_i%20-%20h%28x_i%29%29%20%5E%202%20&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
+_J(W, b) = sum( y - h(x))^2/n_
  
 where _n_ is the number of data points in the given dataset. This cost function is also called **Mean Squared Error**.
 
