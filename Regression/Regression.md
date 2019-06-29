@@ -24,6 +24,9 @@ Regression analysis also allows us to compare the effects of variables measured 
 
 ----
 ### Linear Regression
+Below is a brief summary for linear regression. For more details, please check:
+* [Linear Regression - Wikipedia](https://en.wikipedia.org/wiki/Linear_regression)
+* [Linear Regression Implementation - GeeksforGeeks](https://www.geeksforgeeks.org/linear-regression-python-implementation/)
 
 
 ### Logistic Regression
