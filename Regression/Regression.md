@@ -30,9 +30,15 @@ Below is a brief summary of Linear Regression. For more details, please check:
 
 Linear Regression might be the most popular statistical models in regression analysis. It allows us to learn a function which can represent the relationship between some data points _x_ and corresponding _y_. Such function/relationship is also called hypothesis.
 
-h(x) = W * x + b
+![Hypothesis](http://www.sciweavers.org/tex2img.php?eq=h%28x%29%20%3D%20W%2Ax%20%2B%20b&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
 
-where _W_ is the parameter of weights (vector) and _b_ is the parameter of bias (scalar).
+where _W_ is the parameter of weights (vector) and _b_ is the parameter of bias (scalar). All we need to do next is to estimate the value of _W_ and _b_ from the give data such that the hypothesis _h(x)_ is as close as possible to the original data point _y_. Therefore, the loss/cost function is introduced.
+
+![Loss Function](http://www.sciweavers.org/tex2img.php?eq=%20J%28W%2C%20b%29%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%20%28y_i%20-%20h%28x_i%29%29%20%5E%202%20&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
+ 
+where _n_ is the number of data points in the given dataset. This cost function is also called **Mean Squared Error**.
+
+For finding the optimized value of the parameters for which J is minimum, a commonly used optimizer algorithm, **Gradient Descent** can be used here.
 
 ### Logistic Regression
 
