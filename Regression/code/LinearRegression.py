@@ -88,7 +88,7 @@ if __name__ == '__main__':
 				c = sess.run( cost, feed_dict = {X : x, Y : y} ) 
 				print "Epoch : ", epoch, ", cost =", c, "W =", sess.run(W), "b =", sess.run(b)
 
-		# Generating the final result
+		# Get the optimized result
 		training_cost = sess.run( cost, feed_dict ={X: x, Y: y} ) 
 		weight = sess.run(W) 
 		bias = sess.run(b) 
