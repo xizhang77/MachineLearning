@@ -24,7 +24,8 @@ Regression analysis also allows us to compare the effects of variables measured 
 
 ----
 ### Linear Regression
-Below is a brief summary of Linear Regression. For more details, please check:
+
+The code can be find in [Python Code](./Code/LinearRegression.py) (implemented using TensorFlow). Below is a brief summary of Linear Regression. For more details, please check:
 * [Linear Regression - Wikipedia](https://en.wikipedia.org/wiki/Linear_regression)
 * [Linear Regression Implementation - GeeksforGeeks](https://www.geeksforgeeks.org/linear-regression-python-implementation/)
 
@@ -35,7 +36,7 @@ h(x) = W*x + b
 where _W_ is the parameter of weights (vector) and _b_ is the parameter of bias (scalar). All we need to do next is to estimate the value of _W_ and _b_ from the give data such that the hypothesis _h(x)_ is as close as possible to the original data point _y_. Therefore, the loss/cost function is introduced.
 
 ```
-J(W, b) = sum( y - h(x))^2/n
+J(W, b) = sum(y - h(x))^2/n
 ```
 
 where _n_ is the number of data points in the given dataset. This cost function is also called **Mean Squared Error**.
