@@ -24,10 +24,15 @@ Regression analysis also allows us to compare the effects of variables measured 
 
 ----
 ### Linear Regression
-Below is a brief summary for linear regression. For more details, please check:
+Below is a brief summary of Linear Regression. For more details, please check:
 * [Linear Regression - Wikipedia](https://en.wikipedia.org/wiki/Linear_regression)
 * [Linear Regression Implementation - GeeksforGeeks](https://www.geeksforgeeks.org/linear-regression-python-implementation/)
 
+Linear Regression might be the most popular statistical models in regression analysis. It allows us to learn a function which can represent the relationship between some data points _x_ and corresponding _y_. Such function/relationship is also called hypothesis.
+
+h(x) = W * x + b
+
+where _W_ is the parameter of weights (vector) and _b_ is the parameter of bias (scalar).
 
 ### Logistic Regression
 
