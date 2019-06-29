@@ -29,16 +29,27 @@ Below is a brief summary of Linear Regression. For more details, please check:
 * [Linear Regression Implementation - GeeksforGeeks](https://www.geeksforgeeks.org/linear-regression-python-implementation/)
 
 Linear Regression might be the most popular statistical models in regression analysis. It allows us to learn a function which can represent the relationship between some data points _x_ and corresponding _y_. Such function/relationship is also called hypothesis.
-
-_h(x) = W*x + b_
-
+```
+h(x) = W*x + b
+```
 where _W_ is the parameter of weights (vector) and _b_ is the parameter of bias (scalar). All we need to do next is to estimate the value of _W_ and _b_ from the give data such that the hypothesis _h(x)_ is as close as possible to the original data point _y_. Therefore, the loss/cost function is introduced.
 
-_J(W, b) = sum( y - h(x))^2/n_
- 
+```
+J(W, b) = sum( y - h(x))^2/n
+```
+
 where _n_ is the number of data points in the given dataset. This cost function is also called **Mean Squared Error**.
 
-For finding the optimized value of the parameters for which J is minimum, a commonly used optimizer algorithm, **Gradient Descent** can be used here.
+For finding the optimized value of the parameters for which J is minimum, a commonly used optimizer algorithm, **Gradient Descent** can be used here. Following is the pseudo-code for Gradient Descent:
+
+```
+Repeat untill Convergence {
+  w = w - α * δJ/δw
+  b = b - α * δJ/δb
+}
+```
+
+where _α_ is a hyperparameter called the **Learning Rate**.
 
 ### Logistic Regression
 
