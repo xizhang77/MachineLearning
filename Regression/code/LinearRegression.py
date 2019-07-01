@@ -9,7 +9,8 @@ import matplotlib.pyplot as plt
 def inputs():
 	'''
 	Define the placeholder for X and Y
-	:return: tensors for X and Y
+	:return type X: tensor
+	:return type Y: tensor
 	'''
 	X = tf.compat.v1.placeholder(tf.float32, shape=[None])
 	Y = tf.compat.v1.placeholder(tf.float32, shape=[None])
@@ -19,9 +20,9 @@ def inputs():
 def hypothesis( X, W, b ):
 	'''
 	Define the hypothesis
-	:param X: The input tensor (data).
-	:param W: The weight variable.
-	:param b: The bias variable.
+	:input X: The input tensor (data).
+	:input W: The weight variable.
+	:input b: The bias variable.
 	:return: X*W + b.
 	'''
 	return X * W + b
@@ -29,10 +30,10 @@ def hypothesis( X, W, b ):
 def loss( X, Y, W, b ):
 	'''
 	Create the loss/cost function
-	:param X: The input tensor (data).
-	:param Y: The input tensor (label).
-	:param W: The weight variable.
-	:param b: The bias variable.
+	:input X: The data tensor.
+	:input Y: The label tensor.
+	:input W: The weight variable (tensor).
+	:input b: The bias variable (tensor).
 	:return: the loss.
 	'''
 	y_hat = hypothesis(X, W, b) # also known as predicted Y
@@ -43,8 +44,8 @@ def loss( X, Y, W, b ):
 def train( rate, loss ):
 	'''
 	Optimize the loss function using gradient descent.
-	:param rate: The learning_rate
-	:param loss: The loss/cost
+	:input rate: The learning_rate (tensor)
+	:input loss: The loss/cost (tensor)
 	:return: optimizing result
 	'''
 
