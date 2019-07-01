@@ -50,7 +50,9 @@ Repeat untill Convergence {
 }
 ```
 
-where _α_ is a hyperparameter called the **Learning Rate**.
+where _α_ is a hyperparameter called the **Learning Rate**. Below is an example of how linear regression fitted among the original 2D data.
+
+![Figure](./figure/line_reg.png)
 
 ### Logistic Regression
 
