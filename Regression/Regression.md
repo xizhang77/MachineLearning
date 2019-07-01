@@ -62,11 +62,12 @@ The code can be find in [Python Code](./code/LogisticRegression.py) (implemented
 
 Logistic Regression is used for binary classification (0/1, True/False). It helps to get the probability of label=True/1 and label=False/0. The logtistic function is a sigmoid function, which takes any real input _x_ and outputs a value _y_ between 0 and 1. The standard logtistic function is defined as follows: 
 ```
-p(x) = 1/(1+e^{-x})
+p(x) = 1/(1+exp(-x))
 ```
 Using the same hypothesis function as Linear Regression, we can get the general logistic hypothesis as:
 ```
-p(x) = 1/(1+e^{- W*x - b})
+p(Y = 1|x) = exp(wx+b)/(1+ exp(wx+b)) = 1/(1+ exp(-wx-b))
+p(Y = 0|x) = 1/(1+ exp(wx+b))
 ```
 where _W_ is the parameter of weights (vector) and _b_ is the parameter of bias (scalar). _p(x)_ here is interpreted as the probability of independent variable _x_ falls between 0 and 1.
 
