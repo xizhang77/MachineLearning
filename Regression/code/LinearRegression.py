@@ -48,7 +48,7 @@ def train( rate, loss ):
 	:return: optimizing result
 	'''
 
-	opt = tf.train.GradientDescentOptimizer( learning_rate= rate )
+	opt = tf.compat.v1.train.GradientDescentOptimizer( learning_rate= rate )
 	return opt.minimize( loss )
 
 
