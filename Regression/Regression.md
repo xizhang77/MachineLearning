@@ -54,6 +54,24 @@ where _α_ is a hyperparameter called the **Learning Rate**.
 
 ### Logistic Regression
 
+The code can be find in [Python Code](./code/LogisticRegression.py) (implemented using TensorFlow). Below is a brief summary of Linear Regression. For more details, please check:
+* [Logistic Regression - Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression)
+* [Logistic Regression Implementation - GeeksforGeeks](https://www.geeksforgeeks.org/ml-logistic-regression-using-tensorflow/)
+
+Logistic Regression is used for binary classification (0/1, True/False). It helps to get the probability of label=True/1 and label=False/0. The logtistic function is a sigmoid function, which takes any real input _x_ and outputs a value _y_ between 0 and 1. The standard logtistic function is defined as follows: 
+```
+p(x) = 1/(1+e^{-x})
+```
+Using the same hypothesis function as Linear Regression, we can get the general logistic hypothesis as:
+```
+p(x) = 1/(1+e^{- W*x - b})
+```
+where _W_ is the parameter of weights (vector) and _b_ is the parameter of bias (scalar). _p(x)_ here is interpreted as the probability of independent variable _x_ falls between 0 and 1.
+
+Using the same optimization approach **Gradient Descent**, we can get the classifier. Below is an example of how logistic regression used among classification problem (data used: Iris.)
+
+![Figure](./figure/log_reg.png)
+
 ### Ridge Regression
 
 ### LASSO Regression
