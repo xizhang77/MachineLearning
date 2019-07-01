@@ -56,20 +56,28 @@ where _α_ is a hyperparameter called the **Learning Rate**. Below is an example
 
 ### Logistic Regression
 
-The code can be find in [Python Code](./code/LogisticRegression.py) (implemented using TensorFlow). Below is a brief summary of Linear Regression. For more details, please check:
+The code can be find in [Python Code](./code/LogisticRegression.py) (implemented using TensorFlow). Below is a brief summary of Logistic Regression. For more details, please check:
 * [Logistic Regression - Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression)
 * [Logistic Regression Implementation - GeeksforGeeks](https://www.geeksforgeeks.org/ml-logistic-regression-using-tensorflow/)
 
-Logistic Regression is used for binary classification (0/1, True/False). It helps to get the probability of label=True/1 and label=False/0. The logtistic function is a sigmoid function, which takes any real input _x_ and outputs a value _y_ between 0 and 1. The standard logtistic function is defined as follows: 
+Logistic Regression is widely used in classification problem. When using binary logistic regression model, one can get the probability of label=True/1 and label=False/0. The logtistic function is a sigmoid function, which takes any real input _x_ and outputs a value _y_ between 0 and 1. The standard logtistic function is defined as follows: 
 ```
 p(x) = 1/(1+exp(-x))
 ```
 Using the same hypothesis function as Linear Regression, we can get the general logistic hypothesis as:
 ```
-p(Y = 1|x) = exp(wx+b)/(1+ exp(wx+b)) = 1/(1+ exp(-wx-b))
-p(Y = 0|x) = 1/(1+ exp(wx+b))
+p(Y = 1|x) = exp(W*x + b)/(1+ exp(W*x + b)) = 1/(1+ exp(-W*x-b))
+p(Y = 0|x) = 1/(1+ exp(W*x + b))
 ```
 where _W_ is the parameter of weights (vector) and _b_ is the parameter of bias (scalar). _p(x)_ here is interpreted as the probability of independent variable _x_ falls between 0 and 1.
+
+For multinomial logistic regression, the hypothesis can be written as:
+
+```
+p(Y = k|x) = exp(W_k*x+b)/(1+ SUM^{K-1}{exp(W_i*x+b)}) 
+p(Y = K|x) = 1 /(1+ SUM^{K-1}{exp(W_i*x+b)}) 
+```
+where _k_ ranged from 1 to _K_.
 
 Using the same optimization approach **Gradient Descent**, we can get the classifier. Below is an example of how logistic regression used among classification problem (data used: Iris.)
 
