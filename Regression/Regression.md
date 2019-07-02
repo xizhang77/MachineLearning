@@ -19,8 +19,7 @@ Regression analysis also allows us to compare the effects of variables measured 
 
 * [Linear Regression](#Linear-Regression)
 * [Logistic Regression](#Logistic-Regression)
-* [Ridge Regression](#Ridge-Regression)
-* [LASSO Regression](#LASSO-Regression)
+* [Ridge & LASSO Regression](#Ridge-and-LASSO-Regression)
 
 ----
 ### Linear Regression
@@ -83,8 +82,7 @@ Using the same optimization approach **Gradient Descent**, we can get the classi
 
 ![Figure](./figure/log_reg.png)
 
-### Ridge Regression
+### Ridge and LASSO Regression
 
-### LASSO Regression
 
 ## Summary
