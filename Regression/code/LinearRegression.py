@@ -41,6 +41,31 @@ def loss( X, Y, W, b ):
 	# Calculating the cost using: sum(y_hat - y)^2/n
 	return tf.reduce_mean( tf.square(y_hat - Y) )
 
+
+def ridgeLoss( X, Y, W, b, beta ):
+	'''
+	Create the loss/cost function with L2 Regularization (Ridge)
+	'''
+	y_hat = hypothesis(X, W, b)
+
+	regularizer = tf.reduce_mean( tf.square(W) )
+	# regularizer = tf.nn.l2_loss( W )
+
+	loss = tf.reduce_mean( tf.square(y_hat - Y) )
+
+	return loss + beta*regularizer
+
+def lassoLoss( X, Y, W, b, beta ):
+	'''
+	Create the loss/cost function with L1 Regularization (LASSO)
+	'''
+	y_hat = hypothesis(X, W, b)
+
+	regularizer = tf.reduce_sum( tf.abs(W) )
+	loss = tf.reduce_mean( tf.square(y_hat - Y) )
+
+	return loss + beta*regularizer
+
 def train( rate, loss ):
 	'''
 	Optimize the loss function using gradient descent.
@@ -76,14 +101,16 @@ if __name__ == '__main__':
 	with tf.compat.v1.Session() as sess:
 		# Initialize the variables W and b.
 		sess.run( tf.global_variables_initializer() )
+		alpha, epochs = 0.0001, 500
 
 		# Get the input tensors
 		X, Y = inputs()
 
-		cost = loss( X, Y, W, b )
-		optimizer = train( 0.0001, cost )
+		# cost = loss( X, Y, W, b )
+		cost = ridgeLoss( X, Y, W, b, 1.0 )
+		optimizer = train( alpha, cost )
 
-		for epoch in range( 200 ):
+		for epoch in range( epochs ):
 			sess.run( optimizer, feed_dict = {X : x, Y : y} )
 			if epoch % 20 == 0:
 				c = sess.run( cost, feed_dict = {X : x, Y : y} ) 
