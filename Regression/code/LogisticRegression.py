@@ -98,7 +98,7 @@ if __name__ == '__main__':
 	with tf.compat.v1.Session() as sess:
 		# Initialize the variables W and b.
 		sess.run( tf.compat.v1.global_variables_initializer() )
-		alpha, epochs = 0.0035, 500
+		alpha, epochs = 0.003, 500
 
 		# Get the input tensors
 		X, Y = inputs( m )
@@ -111,14 +111,12 @@ if __name__ == '__main__':
 		for epoch in range( epochs ):
 			sess.run( opt, feed_dict = {X : x, Y : y} )
 			if epoch % 50 == 0:
-				c = sess.run( cost, feed_dict = {X : x, Y : y} ) 
-				a = sess.run( acc, feed_dict = {X : x, Y : y} ) 
+				c, a = sess.run( [cost, acc], feed_dict = {X : x, Y : y} ) 
 				print "Epoch : ", epoch, ", cost =", c, ", accuracy =", a
 				# print "Temp results:", sess.run( tf.cast( y_hat > 0.5, dtype=tf.float32 ), feed_dict = {X : x, Y : y} )
 		
 		# Get the optimized result
-		weight = sess.run(W) 
-		bias = sess.run(b) 
+		weight, bias = sess.run([W, b]) 
 
 		# Plotting the Decision Boundary
 		decision_boundary_x = np.array([min(x[:, 0]), max(x[:, 0])])
