@@ -3,131 +3,129 @@
 import tensorflow as tf
 import numpy as np
 
+from sklearn import datasets
+
 import matplotlib.pyplot as plt 
 
 
-def inputs():
+def inputs( m ):
 	'''
 	Define the placeholder for X and Y
 	:return type X: tensor
 	:return type Y: tensor
 	'''
-	X = tf.compat.v1.placeholder(tf.float32, shape=[None])
-	Y = tf.compat.v1.placeholder(tf.float32, shape=[None])
+	X = tf.compat.v1.placeholder(tf.float32, shape=[None, m])
+	Y = tf.compat.v1.placeholder(tf.float32, shape=[None, 1])
 
 	return X, Y
 
-def hypothesis( X, W, b ):
+def hyperplane( X, W, b ):
 	'''
-	Define the hypothesis
+	Define the hyperplane
 	:input X: The input tensor (data).
 	:input W: The weight variable.
 	:input b: The bias variable.
 	:return: X*W + b.
 	'''
-	return X * W + b
+	return tf.add(tf.matmul(X, W), b)
 
-def loss( X, Y, W, b ):
+def loss( X, Y, W, b, beta ):
 	'''
-	Create the loss/cost function
+	Create the loss/cost function with l2 regularization
 	:input X: The data tensor.
 	:input Y: The label tensor.
 	:input W: The weight variable (tensor).
 	:input b: The bias variable (tensor).
+	:input beta: The regularization parameter for weight variable
 	:return: the loss.
 	'''
-	y_hat = hypothesis(X, W, b) # also known as predicted Y
+	l2_norm = tf.reduce_sum( tf.square(W) )
 
-	# Calculating the cost using: sum(y_hat - y)^2/n
-	return tf.reduce_mean( tf.square(y_hat - Y) )
+	y_hat = hyperplane(X, W, b)
+	classification_loss = tf.reduce_mean(tf.maximum(0., tf.subtract(1., tf.multiply(y_hat, y))))
 
+	return tf.add(classification_loss, tf.multiply(beta, l2_norm))
 
-def ridgeLoss( X, Y, W, b, beta ):
-	'''
-	Create the loss/cost function with L2 Regularization (Ridge)
-	'''
-	y_hat = hypothesis(X, W, b)
-
-	regularizer = tf.reduce_mean( tf.square(W) )
-	# regularizer = tf.nn.l2_loss( W )
-
-	loss = tf.reduce_mean( tf.square(y_hat - Y) )
-
-	return loss + beta*regularizer
-
-def lassoLoss( X, Y, W, b, beta ):
-	'''
-	Create the loss/cost function with L1 Regularization (LASSO)
-	'''
-	y_hat = hypothesis(X, W, b)
-
-	regularizer = tf.reduce_sum( tf.abs(W) )
-	loss = tf.reduce_mean( tf.square(y_hat - Y) )
-
-	return loss + beta*regularizer
 
 def train( rate, loss ):
 	'''
 	Optimize the loss function using gradient descent.
-	:input rate: The learning_rate (tensor)
+	:input rate: The learning rate 
 	:input loss: The loss/cost (tensor)
 	:return: optimizing result
 	'''
 
-	opt = tf.compat.v1.train.GradientDescentOptimizer( learning_rate= rate )
+	opt = tf.compat.v1.train.GradientDescentOptimizer( learning_rate = rate )
 	return opt.minimize( loss )
 
+def accuracy( Y_hat, Y ):
+	'''
+	Get the accuracy of the predicted value.
+	:input Y_hat: The predicted tensor.
+	:input Y: The label tensor.
+	:return: accuracy
+	'''
+	predicted = tf.sign( Y_hat )
+	return tf.reduce_mean( tf.cast( tf.equal(predicted, Y), dtype=tf.float32) )
+
+def plotData( x, y ):
+	'''
+	Visualize the given data points (when m = 2)
+	:input x: The input data (narray).
+	:input y: The input label (narray).
+	'''
+	x_pos = np.array([ x[i] for i in range(len(x)) if y[i] == 1 ])
+	x_neg = np.array([ x[i] for i in range(len(x)) if y[i] == -1 ])
+
+	plt.scatter(x_pos[:,0], x_pos[:,1], color = 'blue', label = 'Positive') 
+	plt.scatter(x_neg[:,0], x_neg[:,1], color = 'red', label = 'Negative') 
+
+	plt.title('Linear SVM') 
+	plt.legend() 
+	plt.show() 
 
 if __name__ == '__main__':
 
-	## Generate artificial data
-	# There will be 50 data points ranging from 0 to 50 
-	x = np.linspace(0, 50, 50) 
-	y = np.linspace(0, 50, 50) 
-	# Adding noise to the random linear data 
-	x += np.random.uniform(-4, 4, 50) 
-	y += np.random.uniform(-4, 4, 50) 
+	## Get dataset
+	iris = datasets.load_iris()
+	x = np.array([[x[0], x[3]] for x in iris.data])
+	y = np.array([1 if label == 0 else -1 for label in iris.target]).reshape((x.shape[0],1))
 	
-
+	
 	## Initialize the training variables
-	# Two different ways to initialize: random or 0
-	W = tf.Variable(tf.random_normal([1]), name='weight')
+	W = tf.Variable(tf.random_normal([x.shape[1], 1]), name='weight')
 	b = tf.Variable(tf.random_normal([1]), name='bias')
-
-	# W = tf.Variable(0.0, name='weight')
-	# b = tf.Variable(0.0, name='bias')
 
 	# Launch the graph in a session.
 	with tf.compat.v1.Session() as sess:
 		# Initialize the variables W and b.
 		sess.run( tf.global_variables_initializer() )
-		alpha, epochs = 0.0001, 500
+		alpha, beta, epochs = 0.01, 0.1, 2000
 
 		# Get the input tensors
-		X, Y = inputs()
+		X, Y = inputs( x.shape[1] )
 
 		# cost = loss( X, Y, W, b )
-		cost = ridgeLoss( X, Y, W, b, 1.0 )
-		optimizer = train( alpha, cost )
+		y_hat = hyperplane( X, W, b )
+		cost = loss( X, Y, W, b, beta )
+		opt = train( alpha, cost )
+		acc = accuracy( y_hat, Y )
 
 		for epoch in range( epochs ):
-			sess.run( optimizer, feed_dict = {X : x, Y : y} )
-			if epoch % 20 == 0:
-				c = sess.run( cost, feed_dict = {X : x, Y : y} ) 
-				print "Epoch : ", epoch, ", cost =", c, "W =", sess.run(W), "b =", sess.run(b)
+			sess.run( opt, feed_dict = {X : x, Y : y} )
+			if epoch % 50 == 0:
+				c, a = sess.run( [cost, acc], feed_dict = {X : x, Y : y} )  
+				print "Epoch : ", epoch, ", cost =", c, ", accuracy =", a
 
 		# Get the optimized result
-		training_cost = sess.run( cost, feed_dict ={X: x, Y: y} ) 
-		weight = sess.run(W) 
-		bias = sess.run(b) 
-		print "Training cost =", training_cost, "Weight =", weight, "bias =", bias, '\n'
+		weight, bias = sess.run([W, b]) 
+		x_line = [point[0] for point in x]
 
-		# Calculating the predictions 
-		predictions = weight * x + bias 
+		# Find the separator line.
+		y_line = [-weight[0]/weight[1]*i-bias/weight[1] for i in x_line]
 
 		# Plotting the Results 
-		plt.plot(x, y, 'ro', label ='Original data') 
-		plt.plot(x, predictions, label ='Fitted line') 
-		plt.title('Linear Regression Result') 
-		plt.legend() 
-		plt.show() 
+		plt.plot(x_line, y_line, 'r-', label='Separator' )
+		plotData( x, y )
+
+
