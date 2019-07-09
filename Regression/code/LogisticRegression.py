@@ -48,7 +48,7 @@ def train( rate, loss ):
 	:return: optimizing result
 	'''
 
-	opt = tf.compat.v1.train.GradientDescentOptimizer( learning_rate= rate )
+	opt = tf.compat.v1.train.GradientDescentOptimizer( learning_rate = rate )
 	return opt.minimize( loss )
 
 def accuracy( Y_hat, Y ):
@@ -77,7 +77,7 @@ def plotData( x, y ):
 	# Plotting the Negative Data Points 
 	plt.scatter(x_neg[:, 0], x_neg[:, 1], color = 'red', label = 'Negative') 
 
-	plt.title('Plot of given data and decision boundary') 
+	plt.title('Logistic Regression') 
 	plt.legend() 
 	plt.show() 
 
