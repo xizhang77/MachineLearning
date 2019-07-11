@@ -6,7 +6,6 @@
 
 * [Linear SVM](#Linear-SVM)
 * [Non Linear SVM](#Non-Linear-SVM)
-* [Ridge & LASSO Regression](#Ridge-and-LASSO-Regression)
 
 ----
 ### Linear SVM
