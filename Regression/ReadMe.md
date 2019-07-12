@@ -6,7 +6,8 @@ Regression analysis is an important tool for analyzing data. Here, we fit a curv
 
 Below is an example of how regression used among stock analysis.
 
-![Linear Regression for Stock](https://www.analyticsvidhya.com/wp-content/uploads/2015/08/Regression_Line.png)
+<img src=https://www.analyticsvidhya.com/wp-content/uploads/2015/08/Regression_Line.png width="600">
+
 
 By using the regression analysis, two main insights can be observed:
 
@@ -51,7 +52,8 @@ Repeat untill Convergence {
 
 where _α_ is a hyperparameter called the **Learning Rate**. Below is an example of how linear regression fitted among the original 2D data.
 
-![Figure](./figure/line_reg.png)
+<img src="./figure/line_reg.png" width="500">
+
 
 ### Logistic Regression
 
@@ -80,7 +82,8 @@ where _k_ ranged from 1 to _K_.
 
 Using the same optimization approach **Gradient Descent**, we can get the classifier. Below is an example of how logistic regression used among classification problem (data used: Iris.)
 
-![Figure](./figure/log_reg.png)
+<img src="./figure/log_reg.png" width="500">
+
 
 ### Ridge and LASSO Regression
 
@@ -96,4 +99,3 @@ J(W, b) = sum(y - h(x))^2/n + β * L2_norm(W)
 J(W, b) = sum(y - h(x))^2/n + β * sum( abs(W) )
 ```
 
-## Summary
