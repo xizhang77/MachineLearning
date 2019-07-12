@@ -19,7 +19,11 @@ Below are some good references for SVM with detailed explanation and derivation.
 * [Muti-class SVM](#Multi-Class-SVM)
 ----
 ### Linear SVM
-The code can be find in [Python Code](./code/LinearSVM.py) (implemented using TensorFlow).
+The code can be find in [Python Code](./code/LinearSVM.py) (implemented using TensorFlow). When data is linear separable, Linear SVM is trying to find a hyperplane
+```
+wx - b = 0
+```
+such that, all the data points that belong to possitive class lie on the possitive side (same direction as normal vector _w_), and all the data points that belong to negative class lie on the negative side (opposite direction to normal vector _w_).
 
 ![Linear SVM](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/SVM_margin.png/600px-SVM_margin.png)
 
