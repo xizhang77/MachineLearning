@@ -31,9 +31,14 @@ When the data is linearly separable, one can also select two hyperplanes such th
 
 ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/94c99827acb10edd809df63bb86ca1366f01a8ac)
 
+Below is an example of how linear SVM used among classification problem (data used: Iris.)
+
+![Figure](./figure/line_svm.png)
 
 ### Non Linear SVM
 The code can be find in [Python Code](./code/KernelSVM.py) (implemented using TensorFlow).
+
+![Figure](./figure/nline_svm.png)
 
 
 ### Multi Class SVM
