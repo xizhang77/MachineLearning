@@ -21,4 +21,7 @@ Here is a brief review of different SVM methods. For more details, please check:
 ### Linear SVM
 The code can be find in [Python Code](./code/LinearSVM.py) (implemented using TensorFlow).
 
+![Linear SVM](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/SVM_margin.png/600px-SVM_margin.png)
+
 ### Non Linear SVM
+The code can be find in [Python Code](./code/KernelSVM.py) (implemented using TensorFlow).
