@@ -42,8 +42,7 @@ Therefore, the objective function is written as
 
 ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/9c89851fa2fcd9c920aa089a2a8d75784a84d623)
 
-and can be simplified by solving for the Lagrangian **dual**
-
+and can be simplified by solving for the Lagrangian **dual problem**.
 
 Below is an example of how linear SVM used among classification problem (data used: Iris.)
 
