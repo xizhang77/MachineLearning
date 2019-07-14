@@ -40,18 +40,20 @@ When data lies on the correct side of the margin, _1 - y(wx-b) < 0_ and the hing
 
 Therefore, the objective function is written as
 
-![](https://wikimedia.org/api/rest_v1/media/math/render/svg/53b729df53f32c7fbf933b1b034a8e368037d9b5)
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/9c89851fa2fcd9c920aa089a2a8d75784a84d623)
 
 and can be simplified by solving for the Lagrangian **dual**
 
-![](https://wikimedia.org/api/rest_v1/media/math/render/svg/6521b9d3e009bca40552bb94d204a4da1f2af4fe)
 
 Below is an example of how linear SVM used among classification problem (data used: Iris.)
 
 <img src="./figure/line_svm.png" width="500">
 
 ### Non Linear SVM
-The code can be find in [Python Code](./code/KernelSVM.py) (implemented using TensorFlow).
+The code can be find in [Python Code](./code/KernelSVM.py) (implemented using TensorFlow).\
+
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/6521b9d3e009bca40552bb94d204a4da1f2af4fe)
+
 
 <img src="./figure/nline_svm.png" width="500">
 
