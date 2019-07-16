@@ -126,7 +126,7 @@ if __name__ == '__main__':
 		grid_xx, grid_yy = np.meshgrid( np.arange(min_x, max_x, 0.02), np.arange(min_y, max_y, 0.02) )
 		grid_vals = np.c_[ grid_xx.reshape( -1 ), grid_yy.reshape( -1 ) ] #Shape N*2
 		predict_grid = sess.run( predict, feed_dict = {X : x, Y : y, Pred: grid_vals} )
-		predict_grid = predict_grid.reshape( xx.shape )
+		predict_grid = predict_grid.reshape( grid_xx.shape )
 
 		plt.contourf(grid_xx, grid_yy, predict_grid, cmap=plt.cm.Paired, alpha=0.8)
 		PlotData( x, y )
