@@ -75,3 +75,6 @@ The implementation can be found in [Python Code](./code/KernelSVM.py) (using Ten
 
 
 ### Multi Class SVM
+
+The implementation can be found in [Python Code](./code/MulticlassSVM.py) (using TensorFlow).
+<img src="./figure/mc_svm.png" width="500">
